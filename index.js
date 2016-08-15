@@ -10,15 +10,16 @@ export default class BrightWork {
         return sdk.init(apiKey, appName, baseUrl);
     }
 
-    init(apiKey, appName, baseUrl) {
+    init(apiKey, appName, apiURL, appURL) {
         this.models = {};
         this.apiKey = apiKey;
         this.appName = appName;
-        this.baseUrl = baseUrl;
+        this.apiURL = apiURL || 'http://api.brightwork.io';
+        this.appURL = appURL || `${appName}.bwapps.io`;
 
         // call home and get settings & models
         var request = axios.create({
-            baseURL: baseUrl,
+            baseURL: this.apiURL,
             timeout: 1000,
             headers: {
                 'apiKey': apiKey,
@@ -41,7 +42,7 @@ export default class BrightWork {
 
     initModels(settings) {
         settings.models.forEach((model) => {
-           this.models[model] = new Repository(this.apiKey, this.baseUrl, model);
+           this.models[model] = new Repository(this.apiKey, this.appURL, model);
         });
     }
 };
