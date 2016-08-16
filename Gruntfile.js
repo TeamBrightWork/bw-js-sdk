@@ -22,11 +22,22 @@ module.exports = function (grunt) {
                 files: ["./*.js"],
                 tasks: ["browserify"]
             }
+        },
+        jsdoc : {
+            dist : {
+                src: ['*.js', 'README.md'],
+                options: {
+                    destination : 'docs',
+                    configure: './.jsdoc.json',
+                    template: './node_modules/minami'
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks("grunt-browserify");
     grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks('grunt-jsdoc');
 
     grunt.registerTask("default", ["watch"]);
     grunt.registerTask("build", ["browserify"]);

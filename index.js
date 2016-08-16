@@ -1,15 +1,53 @@
 'use strict';
 
 import Repository from'./repository';
+import Query from'./query';
 import axios from 'axios';
 
+/**
+ * @class BrightWork
+ * @classdesc The BrightWork Javascript SDK
+ */
 export default class BrightWork {
 
-    static initialize(apiKey, appName, baseUrl) {
+    /**
+     * Initialize the BrightWork Javascript SDK and connect it to your app
+     * @param apiKey the api key assigned to your app
+     * @param appName the name of your app as defined in the manifest
+     * @param apiURL (optional) the BrightWork API URL
+     * @param appURL (optional) the URL to your APP
+     * @returns {axios.Promise|*}
+     */
+    static initialize(apiKey, appName, apiURL, appURL) {
         var sdk = new BrightWork();
-        return sdk.init(apiKey, appName, baseUrl);
+        return sdk.init(apiKey, appName, apiURL, appURL);
     }
 
+    /**
+     * Create a new query for filtering *.models.model.find
+     * @example <caption>All the photo albums where name contains 'Photo' sorted by name ascending.</caption>
+     * var query = BrightWork.Query().contains('name', 'Photo').ascending('name');
+     *
+     * console.log('searching for all albums named "*Photo*"...');
+     * bw.models.album.find(query).then(function(albums) {
+     *   console.log('...results', albums);
+     * });
+     *
+     * @returns {Query}
+     * @see {Repository#find}
+     */
+    static query() {
+        return new Query();
+    }
+
+    /** The internal initialize method
+     * @private
+     * @param apiKey
+     * @param appName
+     * @param apiURL
+     * @param appURL
+     * @returns {*}
+     */
     init(apiKey, appName, apiURL, appURL) {
         this.models = {};
         this.apiKey = apiKey;
