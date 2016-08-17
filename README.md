@@ -1,6 +1,6 @@
 # Getting Started
 
-The BrightWork platform provides a complete backend solution for apps.  Our goal is to increase developer productivity 
+The BrightWork platform provides a complete backend solution for your apps.  Our goal is to increase developer productivity 
 and reduce the time it takes for you to build a complete application.
  
 Our Javascript SDK accelerates the time it takes to integrate your backend API with your Javascript application.
@@ -24,7 +24,7 @@ Setting you your app to connect to your backend BrightWork API is quick and easy
     
     var bw = BrightWork.initialize('YOUR_API_KEY', 'YOUR_APP_NAME');    
 ```
-All of you models and services are available now via bw.models.MODELNAME and bw.services.SERVICE_NAME respectively.
+All of your models and services are available now via bw.models.MODELNAME and bw.services.SERVICE_NAME respectively.
 > See {@link BrightWork}
 
 ## Examples
@@ -49,7 +49,7 @@ Let's assume we are working off the default BW generated manifest for a photo al
 > See {@link Repository#get}
 
 ### Update an existing album
-*Assumes you've that you have fetched an existing ablum using get and saved to existingAlbum variable.*
+*Assumes that you have have fetched an existing ablum using get and saved to existingAlbum variable.*
 ```    
     bw.models.album.save(existingAlbum).then(function(savedAlbum) {
         console.log('Album saved...');
