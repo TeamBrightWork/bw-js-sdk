@@ -19,7 +19,7 @@ export default class Repository {
 
         this.modelName = modelName.toLowerCase();
         this.request = axios.create({
-            baseURL: baseUrl,
+            baseURL: baseUrl + '/api/',
             timeout: 1000,
             headers: {
                 'apiKey': apiKey,
@@ -37,7 +37,9 @@ export default class Repository {
         return this.request.post(
             `/${this.modelName}`,
             instance
-        );
+        ).then(function(res){
+            return res.data;
+        });
     }
 
     /**
@@ -49,7 +51,9 @@ export default class Repository {
         return this.request.put(
             `/${this.modelName}/${instance.id}`,
             instance
-        );
+        ).then(function(res){
+            return res.data;
+        });
     }
 
     /**
@@ -60,7 +64,9 @@ export default class Repository {
     delete(id) {
         return this.request.delete(
             `/${this.modelName}/${id}`
-        );
+        ).then(function(res){
+            return res.data;
+        });
     }
 
     /**
@@ -81,10 +87,14 @@ export default class Repository {
      * @see {Query}
      */
     find(query) {
+        var criteria = (query) ? query.toCriteria() : {};
+
         return this.request.post(
             `/${this.modelName}/find`,
-            query.toCriteria()
-        );
+            criteria
+        ).then(function(res){
+            return res.data;
+        });
     }
 
 }
