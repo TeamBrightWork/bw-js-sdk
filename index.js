@@ -16,7 +16,7 @@ export default class BrightWork {
      * @param appName the name of your app as defined in the manifest
      * @param apiURL (optional) the BrightWork API URL
      * @param appURL (optional) the URL to your APP
-     * @returns {axios.Promise|*}
+     * @returns {Promise|*}
      */
     static initialize(apiKey, appName, apiURL, appURL) {
         var sdk = new BrightWork();
@@ -69,13 +69,14 @@ export default class BrightWork {
             .then((res) => {
                 console.log('settings loaded...');
                 this.initModels(res.data);
+                window.bw = this;
                 return this;
             })
             .catch((err) => {
                 console.error('Unable to initialize the BrightWork SDK');
                 console.error(err);
                 return null;
-        });
+            });
     }
 
     initModels(settings) {

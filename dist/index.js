@@ -35,7 +35,7 @@ var BrightWork = (function () {
      * @param appName the name of your app as defined in the manifest
      * @param apiURL (optional) the BrightWork API URL
      * @param appURL (optional) the URL to your APP
-     * @returns {axios.Promise|*}
+     * @returns {Promise|*}
      */
 
     BrightWork.initialize = function initialize(apiKey, appName, apiURL, appURL) {
@@ -92,6 +92,7 @@ var BrightWork = (function () {
         return request.get('/app/settings').then(function (res) {
             console.log('settings loaded...');
             _this.initModels(res.data);
+            window.bw = _this;
             return _this;
         })['catch'](function (err) {
             console.error('Unable to initialize the BrightWork SDK');
@@ -18612,7 +18613,7 @@ var Repository = (function () {
     /**
      * Create a new model instance in the persistence store.
      * @param instance the model instance
-     * @returns {*|axios.Promise}
+     * @returns {Promise|*}
      */
 
     Repository.prototype.create = function create(instance) {
@@ -18624,7 +18625,7 @@ var Repository = (function () {
     /**
      * Update an existing model instance in the persistence store.
      * @param instance the model instance
-     * @returns {axios.Promise|*}
+     * @returns {Promise|*}
      */
 
     Repository.prototype.save = function save(instance) {
@@ -18636,7 +18637,7 @@ var Repository = (function () {
     /**
      * Delete an existing model instance from the persistence store.
      * @param id the identifier of the model instance to delete
-     * @returns {axios.Promise|*}
+     * @returns {Promise|*}
      */
 
     Repository.prototype['delete'] = function _delete(id) {
@@ -18658,7 +18659,7 @@ var Repository = (function () {
     /**
      * Search the persistence store for models matching the {Query} criteria.
      * @param query {Query} the criteria to use for the search
-     * @returns {*|axios.Promise}
+     * @returns {Promise|*}
      * @see {Query}
      */
 

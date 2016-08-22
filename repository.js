@@ -31,7 +31,7 @@ export default class Repository {
     /**
      * Create a new model instance in the persistence store.
      * @param instance the model instance
-     * @returns {*|axios.Promise}
+     * @returns {Promise|*}
      */
     create(instance) {
         return this.request.post(
@@ -45,7 +45,7 @@ export default class Repository {
     /**
      * Update an existing model instance in the persistence store.
      * @param instance the model instance
-     * @returns {axios.Promise|*}
+     * @returns {Promise|*}
      */
     save(instance){
         return this.request.put(
@@ -59,7 +59,7 @@ export default class Repository {
     /**
      * Delete an existing model instance from the persistence store.
      * @param id the identifier of the model instance to delete
-     * @returns {axios.Promise|*}
+     * @returns {Promise|*}
      */
     delete(id) {
         return this.request.delete(
@@ -83,7 +83,7 @@ export default class Repository {
     /**
      * Search the persistence store for models matching the {Query} criteria.
      * @param query {Query} the criteria to use for the search
-     * @returns {*|axios.Promise}
+     * @returns {Promise|*}
      * @see {Query}
      */
     find(query) {

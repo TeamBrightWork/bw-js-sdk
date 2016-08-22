@@ -19,10 +19,16 @@ Our Javascript SDK accelerates the time it takes to integrate your backend API w
 
 ## Connecting to your API
 Setting you your app to connect to your backend BrightWork API is quick and easy.
-```
-    var BrightWork = require('BrightWork');
-    
-    var bw = BrightWork.initialize('YOUR_API_KEY', 'YOUR_APP_NAME');    
+```    
+    BrightWork.initialize('YOUR_API_KEY', 'YOUR_APP_NAME').then(function() {
+        // BrightWork is now attached to window.bw
+        // so you can query your data or do anything else you need now
+        
+        // like fetch all albums
+        bw.models.album.find().then(function(albums) {
+            console.log(album);
+        });
+    );    
 ```
 All of your models and services are available now via bw.models.MODELNAME and bw.services.SERVICE_NAME respectively.
 > See {@link BrightWork}
