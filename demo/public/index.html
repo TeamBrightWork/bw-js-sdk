@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Photo Album</title>
+
+    <link rel="icon" href="favicon.ico">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.min.js"></script>
+
+    <!-- SDK -->
+    <script src="index.js"></script>
+
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script id="album-table" type="text/x-handlebars-template">      
+      {{#each albums}}
+        {{> album-row}}
+      {{/each}}
+    </script>
+
+    <script id="album-row" type="text/x-handlebars-template">      
+        <tr id="row-{{id}}">
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{createdAt}}</td>
+            <td>
+                <button id="{{id}}" class="btn btn-danger btn-small btn-rounded"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> delete</button>
+            </td>
+        </tr>
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img id="main-logo" src="images/logo.png">
+                <span class="navbar-brand brand-name">BrightWork JS SDK</span>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="https://www.brightwork.io/docs/js-sdk.html" target="_blank">Read the docs</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="starter-template">
+            <h1>Photo Album Demo</h1>
+            <h5>BrightWork + HTML + JQuery</h5>
+            <hr/>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Add a new Album</h3>
+                <form class="form-inline" id="newAlbum">
+                    <div class="form-group">
+                        <label for="albumName">Name:</label>
+                        <input type="text" id="albumName" name="albumName" />
+                    </div>
+                    <button class="btn btn-primary btn-rounded"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> add</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Photo Albums</h3>
+                <table class="table">
+                    <thead>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody id="albumContent">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <footer class="alert alert-info">
+        <div class="row">
+            <div class="col-xs-4 text-left"><em>/* ship high-quality Javascript apps faster, without building infrastructure */</em></div>
+            <div class="col-xs-4 text-center">Signup at: <a href="http://www.brightwork.io/#signup">http://www.brightwork.io</a></div>
+            <div class="col-xs-4 text-right">© 2016, made with <i class="icon-danger glyphicon glyphicon-heart"></i> in Portland, Oregon</div>
+        </div>
+        
+    </footer>
+</body>
+</html>
