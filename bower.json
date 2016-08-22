@@ -1,0 +1,22 @@
+{
+  "name": "bw-js-sdk",
+  "description": "The BrightWork Javascript SDK",
+  "main": "dist/index.js",
+  "authors": [
+    "Phil Taylor"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "brightwork",
+    "javascript",
+    "sdk"
+  ],
+  "homepage": "https://github.com/TeamBrightWork/bw-js-sdk",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
