@@ -53,7 +53,7 @@ export default class BrightWork {
         this.apiKey = apiKey;
         this.appName = appName;
         this.apiURL = apiURL || 'http://api.brightwork.io';
-        this.appURL = appURL || `${this.appName}.bwapps.io`;
+        this.appURL = appURL || `http://${this.appName}.bwapps.io`;
 
         // call home and get settings & models
         var request = axios.create({
