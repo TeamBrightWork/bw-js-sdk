@@ -19,14 +19,14 @@
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 
-    <script id="album-table" type="text/x-handlebars-template">      
+    <script id="album-table" type="text/x-handlebars-template">
       {{#each albums}}
         {{> album-row}}
       {{/each}}
     </script>
 
-    <script id="album-row" type="text/x-handlebars-template">      
-        <tr id="row-{{id}}">
+    <script id="album-row" type="text/x-handlebars-template">
+        <tr class="row-{{id}}">
             <td>{{id}}</td>
             <td>{{name}}</td>
             <td>{{createdAt}}</td>
@@ -64,7 +64,6 @@
             <h5>BrightWork + HTML + JQuery</h5>
             <hr/>
         </div>
-
         <div class="row">
             <div class="col-xs-12">
                 <h3>Add a new Album</h3>
@@ -83,12 +82,41 @@
                 <h3>Photo Albums</h3>
                 <table class="table">
                     <thead>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Created</th>
-                        <th>Actions</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Created</th>
+                    <th>Actions</th>
                     </thead>
                     <tbody id="albumContent">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Albums that start with...</h3>
+                <form class="form-inline" id="newLetter">
+                    <div class="form-group">
+                        <label for="letter">Letter:</label>
+                        <input type="text" id="letter" name="letter" />
+                    </div>
+                    <button class="btn btn-primary btn-rounded"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Photo Albums by Letter</h3>
+                <table class="table">
+                    <thead>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                    </thead>
+                    <tbody id="albumByLetterContent">
                     </tbody>
                 </table>
             </div>
@@ -101,7 +129,7 @@
             <div class="col-xs-4 text-center">Signup at: <a href="http://www.brightwork.io/#signup">http://www.brightwork.io</a></div>
             <div class="col-xs-4 text-right">© 2016, made with <i class="icon-danger glyphicon glyphicon-heart"></i> in Portland, Oregon</div>
         </div>
-        
+
     </footer>
 </body>
 </html>
