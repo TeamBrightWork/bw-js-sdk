@@ -35,6 +35,12 @@ var BrightWork = (function () {
      * @param appName the name of your app as defined in the manifest
      * @param apiURL (optional) the BrightWork API URL
      * @param appURL (optional) the URL to your APP
+     * @example <caption>Initialize the BrightWork JavaScript SDK to work with your app.</caption>
+     *
+     * BrightWork.initialize('YOUR-API-KEY', 'YOUR-APP-NAME').then(function(){
+     *      console.log('initialized you can now access the SDK via window.bw global variable');
+     * });
+     *
      * @returns {Promise|*}
      */
 
@@ -77,7 +83,7 @@ var BrightWork = (function () {
         this.apiKey = apiKey;
         this.appName = appName;
         this.apiURL = apiURL || 'http://api.brightwork.io';
-        this.appURL = appURL || this.appName + '.bwapps.io';
+        this.appURL = appURL || 'http://' + this.appName + '.bwapps.io';
 
         // call home and get settings & models
         var request = _axios2['default'].create({

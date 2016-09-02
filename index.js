@@ -16,6 +16,12 @@ export default class BrightWork {
      * @param appName the name of your app as defined in the manifest
      * @param apiURL (optional) the BrightWork API URL
      * @param appURL (optional) the URL to your APP
+     * @example <caption>Initialize the BrightWork JavaScript SDK to work with your app.</caption>
+     *
+     * BrightWork.initialize('YOUR_API_KEY', 'YOUR_APP_NAME').then(function(){
+     *      console.log('initialized you can now access the SDK via window.bw global variable');
+     * });
+     *
      * @returns {Promise|*}
      */
     static initialize(apiKey, appName, apiURL, appURL) {
