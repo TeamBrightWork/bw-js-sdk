@@ -29,7 +29,7 @@ module.exports = function (grunt) {
                 options: {
                     destination : 'docs',
                     configure: './.jsdoc.json',
-                    template: './node_modules/minami'
+                    template: './template'
                 }
             }
         }

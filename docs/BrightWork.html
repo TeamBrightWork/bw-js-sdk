@@ -1,41 +1,70 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>BrightWork - Documentation</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>JavaScript SDK Class: BrightWork</title>
 
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.readable.css">
+
 </head>
+
 <body>
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html"><img class="branding-logo" src="img/logo.png"
+		alt="logo"/>JavaScript SDK</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="BrightWork.html">BrightWork</a></li><li><a href="Query.html">Query</a></li><li><a href="Repository.html">Repository</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+		<div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+	</div>
 
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BrightWork.html">BrightWork</a><ul class='methods'><li data-type='method'><a href="BrightWork.html#.initialize">initialize</a></li><li data-type='method'><a href="BrightWork.html#.query">query</a></li></ul></li><li><a href="Query.html">Query</a><ul class='methods'><li data-type='method'><a href="Query.html#ascending">ascending</a></li><li data-type='method'><a href="Query.html#contains">contains</a></li><li data-type='method'><a href="Query.html#descending">descending</a></li><li data-type='method'><a href="Query.html#endsWith">endsWith</a></li><li data-type='method'><a href="Query.html#equalTo">equalTo</a></li><li data-type='method'><a href="Query.html#greaterThan">greaterThan</a></li><li data-type='method'><a href="Query.html#greaterThanOrEqual">greaterThanOrEqual</a></li><li data-type='method'><a href="Query.html#lessThan">lessThan</a></li><li data-type='method'><a href="Query.html#lessThanOrEqual">lessThanOrEqual</a></li><li data-type='method'><a href="Query.html#like">like</a></li><li data-type='method'><a href="Query.html#limit">limit</a></li><li data-type='method'><a href="Query.html#notEqualTo">notEqualTo</a></li><li data-type='method'><a href="Query.html#notOneOf">notOneOf</a></li><li data-type='method'><a href="Query.html#oneOf">oneOf</a></li><li data-type='method'><a href="Query.html#skip">skip</a></li><li data-type='method'><a href="Query.html#startsWith">startsWith</a></li></ul></li><li><a href="Repository.html">Repository</a><ul class='methods'><li data-type='method'><a href="Repository.html#create">create</a></li><li data-type='method'><a href="Repository.html#delete">delete</a></li><li data-type='method'><a href="Repository.html#find">find</a></li><li data-type='method'><a href="Repository.html#get">get</a></li><li data-type='method'><a href="Repository.html#save">save</a></li></ul></li></ul>
-</nav>
-
-<div id="main">
-    
-    <h1 class="page-title">BrightWork</h1>
-    
-
-    
+</div>
+</div>
 
 
+<div class="container" id="toc-content">
+<div class="row">
 
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
 
+	<h1 class="page-title">Class: BrightWork</h1>
 <section>
 
 <header>
@@ -44,39 +73,42 @@
         BrightWork
         </h2>
         
-            <div class="class-description">The BrightWork Javascript SDK</div>
+            <div class="class-description"><p>The BrightWork Javascript SDK</p></div>
         
     
 </header>
+
 
 <article>
     <div class="container-overview">
     
         
+<hr>
+<dt>
+    <h4 class="name" id="BrightWork"><span class="type-signature"></span>new BrightWork()</h4>
+    
+    
+</dt>
+<dd>
 
     
-    <h2>Constructor</h2>
-    
-
-    <h4 class="name" id="BrightWork"><span class="type-signature"></span>new BrightWork<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
+    
 
+    
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -86,45 +118,42 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
+    
+</dd>
 
     
     </div>
@@ -135,7 +164,7 @@
 
     
 
-     
+    
 
     
 
@@ -144,33 +173,32 @@
     
         <h3 class="subsection-title">Methods</h3>
 
-        
+        <dl>
             
+<hr>
+<dt>
+    <h4 class="name" id=".initialize"><span class="type-signature">&lt;static> </span>initialize(apiKey, appName, apiURL, appURL)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Initialize the BrightWork Javascript SDK and connect it to your app</p>
+    </div>
+    
 
     
 
-    <h4 class="name" id=".initialize"><span class="type-signature">(static) </span>initialize<span class="signature">(apiKey, appName, apiURL, appURL)</span><span class="type-signature"> &rarr; {axios.Promise|*}</span></h4>
-
     
 
-
-
-<div class="description">
-    Initialize the BrightWork Javascript SDK and connect it to your app
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
+    
+        <h5>Parameters:</h5>
+        
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -203,7 +231,7 @@
 
             
 
-            <td class="description last">the api key assigned to your app</td>
+            <td class="description last"><p>the api key assigned to your app</p></td>
         </tr>
 
     
@@ -221,7 +249,7 @@
 
             
 
-            <td class="description last">the name of your app as defined in the manifest</td>
+            <td class="description last"><p>the name of your app as defined in the manifest</p></td>
         </tr>
 
     
@@ -239,7 +267,7 @@
 
             
 
-            <td class="description last">(optional) the BrightWork API URL</td>
+            <td class="description last"><p>(optional) the BrightWork API URL</p></td>
         </tr>
 
     
@@ -257,19 +285,24 @@
 
             
 
-            <td class="description last">(optional) the URL to your APP</td>
+            <td class="description last"><p>(optional) the URL to your APP</p></td>
         </tr>
 
     
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -279,95 +312,108 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
 
 
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl class="param-type">
+<dl>
     <dt>
         Type
     </dt>
     <dd>
         
-<span class="param-type">axios.Promise</span>
+<span class="param-type">Promise</span>
 |
 
 <span class="param-type">*</span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+        <p class="code-caption">Initialize the BrightWork JavaScript SDK to work with your app.</p>
+    
+    <pre class="sunlight-highlight-javascript">BrightWork.initialize(&#x27;YOUR_API_KEY&#x27;, &#x27;YOUR_APP_NAME&#x27;).then(function(){
+     console.log(&#x27;initialized you can now access the SDK via window.bw global variable&#x27;);
+});</pre>
 
 
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id=".query"><span class="type-signature">&lt;static> </span>query()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Create a new query for filtering *.models.model.find</p>
+    </div>
+    
 
     
 
-    <h4 class="name" id=".query"><span class="type-signature">(static) </span>query<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Query.html">Query</a>}</span></h4>
-
     
 
+    
+    
 
-
-<div class="description">
-    Create a new query for filtering *.models.model.find
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -377,56 +423,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
 
-    
+	
 
-    
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li>{<a href="Repository.html#find">Repository#find</a>}</li>
+			</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li>{<a href="Repository.html#find">Repository#find</a>}</li>
-        </ul>
-    </dd>
-    
-
-    
+	
 </dl>
 
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
 
 
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl class="param-type">
+<dl>
     <dt>
         Type
     </dt>
@@ -435,26 +477,30 @@
 <span class="param-type"><a href="Query.html">Query</a></span>
 
 
+
     </dd>
 </dl>
 
-    
-
-
-    <h5>Example</h5>
-    
-        <p class="code-caption">All the photo albums where name contains 'Photo' sorted by name ascending.</p>
-    
-    <pre class="prettyprint"><code>var query = BrightWork.Query().contains('name', 'Photo').ascending('name');
-
-console.log('searching for all albums named "*Photo*"...');
-bw.models.album.find(query).then(function(albums) {
-  console.log('...results', albums);
-});</code></pre>
-
-
 
         
+
+    
+        <h5>Example</h5>
+        
+        <p class="code-caption">All the photo albums where name contains 'Photo' sorted by name ascending.</p>
+    
+    <pre class="sunlight-highlight-javascript">var query = BrightWork.Query().contains(&#x27;name&#x27;, &#x27;Photo&#x27;).ascending(&#x27;name&#x27;);
+
+console.log(&#x27;searching for all albums named &quot;*Photo*&quot;...&#x27;);
+bw.models.album.find(query).then(function(albums) {
+  console.log(&#x27;...results&#x27;, albums);
+});</pre>
+
+
+    
+</dd>
+
+        </dl>
     
 
     
@@ -467,15 +513,143 @@ bw.models.album.find(query).then(function(albums) {
 
 
 
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
 </div>
 
-<br class="clear">
+<div class="modal fade" id="searchResults">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Search results</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Aug 21 2016 18:54:40 GMT-0500 (CDT) using the Minami theme.
+
+	<div class='text-center'><a href='http://brightwork.io'>www.brightwork.io</a></div>
+
+
+	<span class="copyright">
+	BrightWork Copyright © 2016
+	</span>
+
 </footer>
 
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			var id = $( heading ).attr( "id" );
+			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+<script>
+	(function ( i, s, o, g, r, a, m ) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function () {
+			(i[r].q = i[r].q || []).push( arguments )
+		}, i[r].l = 1 * new Date();
+		a = s.createElement( o ),
+			m = s.getElementsByTagName( o )[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore( a, m )
+	})( window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga' );
+
+	ga( 'create', 'UA-61532766-1', 'brightwork.io' );
+	ga( 'send', 'pageview' );
+</script>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		SearcherDisplay.init();
+	});
+</script>
+
 </body>
 </html>
