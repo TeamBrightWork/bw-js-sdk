@@ -11,8 +11,8 @@ chai.use(chaiAsPromised);
 describe('Repository', function(){
     var repo;
 
-    before(function(){
-        repo = new Repository('API123', 'http://localhost', 'testModel');
+    before(function() {
+        repo = new Repository('API123', 'http://localhost', 'testModel', ['mycollection']);
     });
 
     it('#create', function(done) {
@@ -69,6 +69,35 @@ describe('Repository', function(){
                 .reply(200, 'found');
 
         expect(repo.find(new Query().equalTo('field1', 'test'))).to.eventually.to.have.deep.property('data', 'found').notify(done);
+
+    });
+
+    describe.skip('Collections', function(){
+
+
+        it('#add', function(done) {
+            var server =
+                nock('http://localhost')
+                    .matchHeader('apiKey', 'API123')
+                    .matchHeader('Content-Type', 'application/json')
+                    .put('/testmodel/1/mycollection/add', { id: 2, name: 'sample item' })
+                    .reply(201, 'added');
+
+            expect(repo.mycollection.add(1, { id: 2, name: 'sample item' })).to.eventually.to.have.property('data', 'added').notify(done);
+        });
+
+
+        it('#remove', function(done) {
+            var server =
+                nock('http://localhost')
+                    .matchHeader('apiKey', 'API123')
+                    .matchHeader('Content-Type', 'application/json')
+                    .delete('/testmodel/1/mycollection/remove/2')
+                    .reply(200, 'deleted');
+
+            expect(repo.mycollection.remove(1, 2)).to.eventually.to.have.property('data', 'removed').notify(done);
+        });
+
 
     });
 

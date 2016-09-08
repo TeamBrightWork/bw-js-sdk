@@ -37,7 +37,7 @@ var BrightWork = (function () {
      * @param appURL (optional) the URL to your APP
      * @example <caption>Initialize the BrightWork JavaScript SDK to work with your app.</caption>
      *
-     * BrightWork.initialize('YOUR-API-KEY', 'YOUR-APP-NAME').then(function(){
+     * BrightWork.initialize('YOUR_API_KEY', 'YOUR_APP_NAME').then(function(){
      *      console.log('initialized you can now access the SDK via window.bw global variable');
      * });
      *
@@ -111,7 +111,7 @@ var BrightWork = (function () {
         var _this2 = this;
 
         settings.models.forEach(function (model) {
-            _this2.models[model] = new _repository2['default'](_this2.apiKey, _this2.appURL, model);
+            _this2.models[model.name] = new _repository2['default'](_this2.apiKey, _this2.appURL, model.name, model.collections);
         });
     };
 
@@ -18602,7 +18602,9 @@ var Repository = (function () {
      * @param modelName
      */
 
-    function Repository(apiKey, baseUrl, modelName) {
+    function Repository(apiKey, baseUrl, modelName, collections) {
+        var _this = this;
+
         _classCallCheck(this, Repository);
 
         this.modelName = modelName.toLowerCase();
@@ -18614,6 +18616,23 @@ var Repository = (function () {
                 'Content-Type': 'application/json'
             }
         });
+
+        /**
+         * Add the convienence helpers to the user
+         * can just call bw.models.model.collection.add / remove
+         */
+        if (collections) {
+            collections.forEach(function (collection) {
+                _this[collection] = {};
+                _this[collection].add = function (modelId, instance) {
+                    _this.add(modelId, collection, instance);
+                };
+
+                _this[collection].remove = function (modelId, instanceId) {
+                    _this.remove(modelId, collection, instanceId);
+                };
+            });
+        }
     }
 
     /**
@@ -18673,6 +18692,34 @@ var Repository = (function () {
         var criteria = query ? query.toCriteria() : {};
 
         return this.request.post('/' + this.modelName + '/find', criteria).then(function (res) {
+            return res.data;
+        });
+    };
+
+    /**
+     * Add a child model instance to collection
+     * @param modelId {*} the parent model identifier
+     * @param collectionName {string} the collection name
+     * @param instance the child instance object
+     * @returns {Promise|*}
+     */
+
+    Repository.prototype.add = function add(modelId, collectionName, instance) {
+        console.log('*add* ', modelId, collectionName, instance);
+        return this.request.post('/' + this.modelName + '/' + modelId + '/' + collectionName + '/add', instance).then(function (res) {
+            return res.data;
+        });
+    };
+
+    /**
+     * Remove a child model instance from a collection
+     * @param modelId {*} the parent model identifier
+     * @param collectionName {string} the collection name
+     * @param instanceId the child model identifier
+     */
+
+    Repository.prototype.remove = function remove(modelId, collectionName, instanceId) {
+        return this.request['delete']('/' + this.modelName + '/' + modelId + '/' + collectionName + '/remove/' + instanceId).then(function (res) {
             return res.data;
         });
     };
