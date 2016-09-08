@@ -2,13 +2,13 @@ module.exports = function (grunt) {
     grunt.initConfig({
         browserify: {
             dist: {
+                standalone: "BrightWork",
                 options: {
-                    transform: [
-                        ["babelify", {
-                            loose: "all"
-                        }]
-                    ]
-                },
+                transform: [
+                    ["babelify", {
+                        loose: "all"
+                    }]
+                ]},
                 files: {
                     // if the source file has an extension of es6 then
                     // we change the name of the source file accordingly.
