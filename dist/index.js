@@ -18625,11 +18625,11 @@ var Repository = (function () {
             collections.forEach(function (collection) {
                 _this[collection] = {};
                 _this[collection].add = function (modelId, instance) {
-                    _this.add(modelId, collection, instance);
+                    return _this.add(modelId, collection, instance);
                 };
 
                 _this[collection].remove = function (modelId, instanceId) {
-                    _this.remove(modelId, collection, instanceId);
+                    return _this.remove(modelId, collection, instanceId);
                 };
             });
         }
