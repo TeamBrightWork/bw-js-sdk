@@ -87,7 +87,7 @@ export default class BrightWork {
 
     initModels(settings) {
         settings.models.forEach((model) => {
-           this.models[model] = new Repository(this.apiKey, this.appURL, model);
+           this.models[model.name] = new Repository(this.apiKey, this.appURL, model.name, model.collections);
         });
     }
 };

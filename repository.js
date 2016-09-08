@@ -15,7 +15,7 @@ export default class Repository {
      * @param baseUrl
      * @param modelName
      */
-    constructor(apiKey, baseUrl, modelName) {
+    constructor(apiKey, baseUrl, modelName, collections) {
 
         this.modelName = modelName.toLowerCase();
         this.request = axios.create({
@@ -26,6 +26,23 @@ export default class Repository {
                 'Content-Type': 'application/json'
             }
         });
+
+        /**
+         * Add the convienence helpers to the user
+         * can just call bw.models.model.collection.add / remove
+         */
+        if (collections) {
+            collections.forEach((collection) => {
+                this[collection] = {};
+                this[collection].add = (modelId, instance) => {
+                    this.add(modelId, collection, instance);
+                };
+
+                this[collection].remove = (modelId, instanceId) => {
+                    this.remove(modelId, collection, instanceId);
+                };
+            });
+        }
     }
 
     /**
@@ -92,6 +109,37 @@ export default class Repository {
         return this.request.post(
             `/${this.modelName}/find`,
             criteria
+        ).then(function (res) {
+            return res.data;
+        });
+    }
+
+    /**
+     * Add a child model instance to collection
+     * @param modelId {*} the parent model identifier
+     * @param collectionName {string} the collection name
+     * @param instance the child instance object
+     * @returns {Promise|*}
+     */
+    add(modelId, collectionName, instance) {
+        console.log('*add* ', modelId, collectionName, instance);
+        return this.request.post(
+            `/${this.modelName}/${modelId}/${collectionName}/add`,
+            instance
+        ).then(function(res){
+            return res.data;
+        });
+    }
+
+    /**
+     * Remove a child model instance from a collection
+     * @param modelId {*} the parent model identifier
+     * @param collectionName {string} the collection name
+     * @param instanceId the child model identifier
+     */
+    remove(modelId, collectionName, instanceId) {
+        return this.request.delete(
+            `/${this.modelName}/${modelId}/${collectionName}/remove/${instanceId}`
         ).then(function(res){
             return res.data;
         });
