@@ -124,7 +124,7 @@ export default class Repository {
     add(modelId, collectionName, instance) {
         console.log('*add* ', modelId, collectionName, instance);
         return this.request.post(
-            `/${this.modelName}/${modelId}/${collectionName}/add`,
+            `/${this.modelName}/${modelId}/${collectionName}`,
             instance
         ).then(function(res){
             return res.data;
@@ -139,7 +139,7 @@ export default class Repository {
      */
     remove(modelId, collectionName, instanceId) {
         return this.request.delete(
-            `/${this.modelName}/${modelId}/${collectionName}/remove/${instanceId}`
+            `/${this.modelName}/${modelId}/${collectionName}/${instanceId}`
         ).then(function(res){
             return res.data;
         });
