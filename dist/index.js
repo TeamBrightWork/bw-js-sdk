@@ -18706,7 +18706,7 @@ var Repository = (function () {
 
     Repository.prototype.add = function add(modelId, collectionName, instance) {
         console.log('*add* ', modelId, collectionName, instance);
-        return this.request.post('/' + this.modelName + '/' + modelId + '/' + collectionName + '/add', instance).then(function (res) {
+        return this.request.post('/' + this.modelName + '/' + modelId + '/' + collectionName, instance).then(function (res) {
             return res.data;
         });
     };
@@ -18719,7 +18719,7 @@ var Repository = (function () {
      */
 
     Repository.prototype.remove = function remove(modelId, collectionName, instanceId) {
-        return this.request['delete']('/' + this.modelName + '/' + modelId + '/' + collectionName + '/remove/' + instanceId).then(function (res) {
+        return this.request['delete']('/' + this.modelName + '/' + modelId + '/' + collectionName + '/' + instanceId).then(function (res) {
             return res.data;
         });
     };
