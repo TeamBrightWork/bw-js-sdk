@@ -35,11 +35,11 @@ export default class Repository {
             collections.forEach((collection) => {
                 this[collection] = {};
                 this[collection].add = (modelId, instance) => {
-                    this.add(modelId, collection, instance);
+                    return this.add(modelId, collection, instance);
                 };
 
                 this[collection].remove = (modelId, instanceId) => {
-                    this.remove(modelId, collection, instanceId);
+                    return this.remove(modelId, collection, instanceId);
                 };
             });
         }
