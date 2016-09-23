@@ -31,7 +31,6 @@ Setting you your app to connect to your backend BrightWork API is quick and easy
     );    
 ```
 All of your models and services are available now via bw.models.MODELNAME and bw.services.SERVICE_NAME respectively.
-> See {@link BrightWork}
 
 ## Examples
 Let's assume we are working off the default BW generated manifest for a photo album.  This manifest contains two models, album & photo.
@@ -43,7 +42,6 @@ Let's assume we are working off the default BW generated manifest for a photo al
         console.log(newAlbum);
     });
 ```
-> See {@link Repository#create}
 
 ### Get an album from the server
 ```
@@ -52,7 +50,6 @@ Let's assume we are working off the default BW generated manifest for a photo al
         console.log(newAlbum);
     });
 ```
-> See {@link Repository#get}
 
 ### Update an existing album
 *Assumes that you have have fetched an existing ablum using get and saved to existingAlbum variable.*
@@ -62,7 +59,6 @@ Let's assume we are working off the default BW generated manifest for a photo al
         console.log(savedAlbum);
     });
 ```
-> See {@link Repository#save}
 
 ### Delete an existing album
 ```
@@ -70,7 +66,6 @@ Let's assume we are working off the default BW generated manifest for a photo al
         console.log('Album 1 has been deleted');
     });
 ```
-> See {@link Repository#delete}
 
 ### Search for an album
 ```
@@ -81,9 +76,6 @@ Let's assume we are working off the default BW generated manifest for a photo al
         console.log('...results', albums);
     });
 ```
-> See <br/>
-{@link Repository#find} <br/>
-{@link Query}
 
 ### Advanced Query
 For this example let's assume you have an e-commerce system with Order and LineItem models. You need to find all line items where the amount is 
@@ -100,6 +92,3 @@ above $50 and the item is in a "pending" or "paid" status.  You want the results
     });
 
 ```
-> See <br/> 
-{@link Repository#find} <br/>
-{@link Query}
