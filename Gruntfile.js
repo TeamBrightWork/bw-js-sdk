@@ -23,22 +23,29 @@ module.exports = function (grunt) {
                 tasks: ["browserify"]
             }
         },
-        jsdoc : {
-            dist : {
-                src: ['*.js', 'README.md'],
+        jsdoc2md: {
+            withOptions: {
                 options: {
-                    destination : 'docs',
-                    configure: './.jsdoc.json',
-                    template: './template'
-                }
+                    'no-gfm': true
+                },
+                src: '*.js',
+                dest: 'docs/APIGuide.md'
             }
-        }
+        },
+        copy: {
+            docs: {
+                src: 'README.md',
+                dest: 'docs/GettingStarted.md'
+            },
+        },
     });
 
     grunt.loadNpmTasks("grunt-browserify");
     grunt.loadNpmTasks("grunt-contrib-watch");
-    grunt.loadNpmTasks('grunt-jsdoc');
+    grunt.loadNpmTasks('grunt-jsdoc-to-markdown')
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask("default", ["watch"]);
-    grunt.registerTask("build", ["browserify"]);
+    grunt.registerTask("build", ["browserify", "docs"]);
+    grunt.registerTask("docs", ["jsdoc2md", "copy:docs"]);
 };
