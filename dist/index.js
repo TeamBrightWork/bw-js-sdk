@@ -18678,7 +18678,9 @@ var Repository = (function () {
      */
 
     Repository.prototype.get = function get(id) {
-        return this.request.get('/' + this.modelName + '/' + id);
+        return this.request.get('/' + this.modelName + '/' + id).then(function (res) {
+            return res.data;
+        });
     };
 
     /**
