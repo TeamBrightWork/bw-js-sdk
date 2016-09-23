@@ -29,7 +29,7 @@ module.exports = function (grunt) {
                     'no-gfm': true
                 },
                 src: '*.js',
-                dest: 'docs/APIGuide.md'
+                dest: 'docs/Reference.md'
             }
         },
         copy: {
