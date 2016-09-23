@@ -94,7 +94,9 @@ export default class Repository {
     get(id) {
         return this.request.get(
             `/${this.modelName}/${id}`
-        );
+        ).then(function (res) {
+            return res.data;
+        });
     }
 
     /**
