@@ -8,9 +8,9 @@ Our Javascript SDK accelerates the time it takes to integrate your backend API w
 ## Adding the SDK to your app
 
 ### Static
-    <pre><code data-trim>
-    <script src="http://cdn.brightwork.io/bw-js-sdk.js"></script>
-    </code></pre>
+    ```
+    ```<script src="http://cdn.brightwork.io/bw-js-sdk.js"></script>```
+    ```
 
 ### Bower
 ```
