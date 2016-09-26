@@ -9,7 +9,7 @@ Our Javascript SDK accelerates the time it takes to integrate your backend API w
 
 ### Static
 ```
-    <script src="http://cdn.brightwork.io/bw-js-sdk.js"></script>
+    `<script src="http://cdn.brightwork.io/bw-js-sdk.js"></script>`
 ```
 
 ### Bower
