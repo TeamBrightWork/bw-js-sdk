@@ -1,166 +1,37 @@
 ## Classes
 
-<table>
-  <thead>
-    <tr>
-      <th>Global</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td><a href="#BrightWork">BrightWork</a></td>
-    <td><p>The BrightWork Javascript SDK</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#Query">Query</a></td>
-    <td><p>Used to define criteria for use with <a href="Repository#find">Repository#find</a>(query).</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#Repository">Repository</a></td>
-    <td><p>Used to interact with the persistence store.</p>
-</td>
-    </tr>
-</tbody>
-</table>
+* [BrightWork](#BrightWork)
+* [Query](#Query)
+* [Repository](#Repository)
+    * [new Repository()](#new_Repository_new)
 
 ## Functions
 
-<table>
-  <thead>
-    <tr>
-      <th>Global</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td><a href="#initialize">initialize(apiKey, appName, apiURL, appURL)</a> ⇒ <code>Promise</code> | <code>*</code></td>
-    <td><p>Initialize the BrightWork Javascript SDK and connect it to your app</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#query">query()</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Create a new query for filtering *.models.model.find</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#equalTo">equalTo(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to enforce that the model field is equal the the value supplied.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#notEqualTo">notEqualTo(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to enforce that the model field is not equal to the value supplied.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#lessThan">lessThan(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value is less than the value supplied.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#lessThanOrEqual">lessThanOrEqual(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value is less than or equal to the value supplied.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#greaterThan">greaterThan(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value is greater than the value supplied.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#greaterThanOrEqual">greaterThanOrEqual(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value is greater than or equal to the value supplied.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#like">like(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value is like the value supplied.  This allows you to perform a basic wildcard search using (%) as the wildcard.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#contains">contains(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value containts the supplied value. This is equivalent to a string contains comparison (or like %value%).</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#startsWith">startsWith(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value is a string that starts with the supplied value.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#endsWith">endsWith(field, value)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value is a string that ends with the supplied value.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#oneOf">oneOf(field, values)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value is one of the items in the supplied list.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#notOneOf">notOneOf(field, values)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Add criteria to limit the results where the model field value is not one of the items in the supplied list.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#ascending">ascending(field)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Sort the result by the supplied field in ascending order.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#descending">descending(field)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Sort the result by the supplied field in descending order.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#limit">limit(num)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Limit the results to the maximum number of records returned.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#skip">skip(num)</a> ⇒ <code><a href="#Query">Query</a></code></td>
-    <td><p>Skip the specified number of records.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#create">create(instance)</a> ⇒ <code>Promise</code> | <code>*</code></td>
-    <td><p>Create a new model instance in the persistence store.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#save">save(instance)</a> ⇒ <code>Promise</code> | <code>*</code></td>
-    <td><p>Update an existing model instance in the persistence store.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#delete">delete(id)</a> ⇒ <code>Promise</code> | <code>*</code></td>
-    <td><p>Delete an existing model instance from the persistence store.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#get">get(id)</a> ⇒ <code>*</code></td>
-    <td><p>Retrieve an existing model instance from the persistence store.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#find">find(query)</a> ⇒ <code>Promise</code> | <code>*</code></td>
-    <td><p>Search the persistence store for models matching the {Query} criteria.</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#add">add(modelId, collectionName, instance)</a> ⇒ <code>Promise</code> | <code>*</code></td>
-    <td><p>Add a child model instance to collection</p>
-</td>
-    </tr>
-<tr>
-    <td><a href="#remove">remove(modelId, collectionName, instanceId)</a></td>
-    <td><p>Remove a child model instance from a collection</p>
-</td>
-    </tr>
-</tbody>
-</table>
+* [initialize(apiKey, appName, apiURL, appURL)](#initialize) ⇒ <code>Promise</code> &#124; <code>\*</code>
+* [query()](#query) ⇒ <code>[Query](#Query)</code>
+* [equalTo(field, value)](#equalTo) ⇒ <code>[Query](#Query)</code>
+* [notEqualTo(field, value)](#notEqualTo) ⇒ <code>[Query](#Query)</code>
+* [lessThan(field, value)](#lessThan) ⇒ <code>[Query](#Query)</code>
+* [lessThanOrEqual(field, value)](#lessThanOrEqual) ⇒ <code>[Query](#Query)</code>
+* [greaterThan(field, value)](#greaterThan) ⇒ <code>[Query](#Query)</code>
+* [greaterThanOrEqual(field, value)](#greaterThanOrEqual) ⇒ <code>[Query](#Query)</code>
+* [like(field, value)](#like) ⇒ <code>[Query](#Query)</code>
+* [contains(field, value)](#contains) ⇒ <code>[Query](#Query)</code>
+* [startsWith(field, value)](#startsWith) ⇒ <code>[Query](#Query)</code>
+* [endsWith(field, value)](#endsWith) ⇒ <code>[Query](#Query)</code>
+* [oneOf(field, values)](#oneOf) ⇒ <code>[Query](#Query)</code>
+* [notOneOf(field, values)](#notOneOf) ⇒ <code>[Query](#Query)</code>
+* [ascending(field)](#ascending) ⇒ <code>[Query](#Query)</code>
+* [descending(field)](#descending) ⇒ <code>[Query](#Query)</code>
+* [limit(num)](#limit) ⇒ <code>[Query](#Query)</code>
+* [skip(num)](#skip) ⇒ <code>[Query](#Query)</code>
+* [create(instance)](#create) ⇒ <code>Promise</code> &#124; <code>\*</code>
+* [save(instance)](#save) ⇒ <code>Promise</code> &#124; <code>\*</code>
+* [delete(id)](#delete) ⇒ <code>Promise</code> &#124; <code>\*</code>
+* [get(id)](#get) ⇒ <code>\*</code>
+* [find(query)](#find) ⇒ <code>Promise</code> &#124; <code>\*</code>
+* [add(modelId, collectionName, instance)](#add) ⇒ <code>Promise</code> &#124; <code>\*</code>
+* [remove(modelId, collectionName, instanceId)](#remove)
 
 <a name="BrightWork"></a>
 
