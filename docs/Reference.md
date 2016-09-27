@@ -192,27 +192,13 @@ There is no need to instantiate a repository directly. Upon initialization of th
 Initialize the BrightWork Javascript SDK and connect it to your app
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>apiKey</td><td><p>the api key assigned to your app</p>
-</td>
-    </tr><tr>
-    <td>appName</td><td><p>the name of your app as defined in the manifest</p>
-</td>
-    </tr><tr>
-    <td>apiURL</td><td><p>(optional) the BrightWork API URL</p>
-</td>
-    </tr><tr>
-    <td>appURL</td><td><p>(optional) the URL to your APP</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| apiKey | the api key assigned to your app |
+| appName | the name of your app as defined in the manifest |
+| apiURL | (optional) the BrightWork API URL |
+| appURL | (optional) the URL to your APP |
 
 **Example** *(Initialize the BrightWork JavaScript SDK to work with your app.)*  
 ```js
@@ -243,21 +229,11 @@ bw.models.album.find(query).then(function(albums) {
 Add criteria to enforce that the model field is equal the the value supplied.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to enforce equality</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to enforce equality |
+| value | the comparison value |
 
 <a name="notEqualTo"></a>
 
@@ -265,21 +241,11 @@ Add criteria to enforce that the model field is equal the the value supplied.
 Add criteria to enforce that the model field is not equal to the value supplied.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to enforce non equality</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to enforce non equality |
+| value | the comparison value |
 
 <a name="lessThan"></a>
 
@@ -287,21 +253,11 @@ Add criteria to enforce that the model field is not equal to the value supplied.
 Add criteria to limit the results where the model field value is less than the value supplied.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| value | the comparison value |
 
 <a name="lessThanOrEqual"></a>
 
@@ -309,21 +265,11 @@ Add criteria to limit the results where the model field value is less than the v
 Add criteria to limit the results where the model field value is less than or equal to the value supplied.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| value | the comparison value |
 
 <a name="greaterThan"></a>
 
@@ -331,21 +277,11 @@ Add criteria to limit the results where the model field value is less than or eq
 Add criteria to limit the results where the model field value is greater than the value supplied.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| value | the comparison value |
 
 <a name="greaterThanOrEqual"></a>
 
@@ -353,21 +289,11 @@ Add criteria to limit the results where the model field value is greater than th
 Add criteria to limit the results where the model field value is greater than or equal to the value supplied.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| value | the comparison value |
 
 <a name="like"></a>
 
@@ -375,21 +301,11 @@ Add criteria to limit the results where the model field value is greater than or
 Add criteria to limit the results where the model field value is like the value supplied.  This allows you to perform a basic wildcard search using (%) as the wildcard.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| value | the comparison value |
 
 <a name="contains"></a>
 
@@ -397,21 +313,11 @@ Add criteria to limit the results where the model field value is like the value 
 Add criteria to limit the results where the model field value containts the supplied value. This is equivalent to a string contains comparison (or like %value%).
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| value | the comparison value |
 
 <a name="startsWith"></a>
 
@@ -419,21 +325,11 @@ Add criteria to limit the results where the model field value containts the supp
 Add criteria to limit the results where the model field value is a string that starts with the supplied value.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| value | the comparison value |
 
 <a name="endsWith"></a>
 
@@ -441,21 +337,11 @@ Add criteria to limit the results where the model field value is a string that s
 Add criteria to limit the results where the model field value is a string that ends with the supplied value.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>value</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| value | the comparison value |
 
 <a name="oneOf"></a>
 
@@ -463,21 +349,11 @@ Add criteria to limit the results where the model field value is a string that e
 Add criteria to limit the results where the model field value is one of the items in the supplied list.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>values</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| values | the comparison value |
 
 **Example** *(Find all photos that have been &#x27;reviewed&#x27; or &#x27;downloaded&#x27;)*  
 ```js
@@ -495,21 +371,11 @@ bw.models.photo.find(query).then(function(photos) {
 Add criteria to limit the results where the model field value is not one of the items in the supplied list.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td><td><p>the model field to compare against</p>
-</td>
-    </tr><tr>
-    <td>values</td><td><p>the comparison value</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| field | the model field to compare against |
+| values | the comparison value |
 
 <a name="ascending"></a>
 
@@ -517,17 +383,10 @@ Add criteria to limit the results where the model field value is not one of the 
 Sort the result by the supplied field in ascending order.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td>
-    </tr>  </tbody>
-</table>
+
+| Param |
+| --- |
+| field | 
 
 **Example** *(Sort by created date and then name)*  
 ```js
@@ -545,17 +404,10 @@ bw.models.photo.find(query).then(function(photos) {
 Sort the result by the supplied field in descending order.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>field</td>
-    </tr>  </tbody>
-</table>
+
+| Param |
+| --- |
+| field | 
 
 <a name="limit"></a>
 
@@ -563,18 +415,10 @@ Sort the result by the supplied field in descending order.
 Limit the results to the maximum number of records returned.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>num</td><td><p>the maximum number of records to return</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| num | the maximum number of records to return |
 
 **Example** *(Top 50 photo albumns by rank)*  
 ```js
@@ -592,18 +436,10 @@ bw.models.album.find(query).then(function(albums) {
 Skip the specified number of records.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>num</td><td><p>the number of records to skip</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| num | the number of records to skip |
 
 **Example** *(Combine skip and limit to implement paging.)*  
 ```js
@@ -624,18 +460,10 @@ bw.models.photo.find(query).then(function(photos) {
 Create a new model instance in the persistence store.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>instance</td><td><p>the model instance</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| instance | the model instance |
 
 <a name="save"></a>
 
@@ -643,18 +471,10 @@ Create a new model instance in the persistence store.
 Update an existing model instance in the persistence store.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>instance</td><td><p>the model instance</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| instance | the model instance |
 
 <a name="delete"></a>
 
@@ -662,18 +482,10 @@ Update an existing model instance in the persistence store.
 Delete an existing model instance from the persistence store.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><p>the identifier of the model instance to delete</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| id | the identifier of the model instance to delete |
 
 <a name="get"></a>
 
@@ -681,18 +493,10 @@ Delete an existing model instance from the persistence store.
 Retrieve an existing model instance from the persistence store.
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>id</td><td><p>the identifier of the model instance to get</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Description |
+| --- | --- |
+| id | the identifier of the model instance to get |
 
 <a name="find"></a>
 
@@ -701,18 +505,10 @@ Search the persistence store for models matching the {Query} criteria.
 
 **Kind**: global function  
 **See**: {Query}  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>query</td><td><code><a href="#Query">Query</a></code></td><td><p>the criteria to use for the search</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| query | <code>[Query](#Query)</code> | the criteria to use for the search |
 
 <a name="add"></a>
 
@@ -720,24 +516,12 @@ Search the persistence store for models matching the {Query} criteria.
 Add a child model instance to collection
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>modelId</td><td><code>*</code></td><td><p>the parent model identifier</p>
-</td>
-    </tr><tr>
-    <td>collectionName</td><td><code>string</code></td><td><p>the collection name</p>
-</td>
-    </tr><tr>
-    <td>instance</td><td></td><td><p>the child instance object</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| modelId | <code>\*</code> | the parent model identifier |
+| collectionName | <code>string</code> | the collection name |
+| instance |  | the child instance object |
 
 <a name="remove"></a>
 
@@ -745,22 +529,10 @@ Add a child model instance to collection
 Remove a child model instance from a collection
 
 **Kind**: global function  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>modelId</td><td><code>*</code></td><td><p>the parent model identifier</p>
-</td>
-    </tr><tr>
-    <td>collectionName</td><td><code>string</code></td><td><p>the collection name</p>
-</td>
-    </tr><tr>
-    <td>instanceId</td><td></td><td><p>the child model identifier</p>
-</td>
-    </tr>  </tbody>
-</table>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| modelId | <code>\*</code> | the parent model identifier |
+| collectionName | <code>string</code> | the collection name |
+| instanceId |  | the child model identifier |
 
