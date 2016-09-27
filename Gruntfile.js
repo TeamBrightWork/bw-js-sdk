@@ -26,7 +26,7 @@ module.exports = function (grunt) {
         jsdoc2md: {
             withOptions: {
                 options: {
-                    'no-gfm': true,
+                    'no-gfm': false,
                     'global-index-format': 'table'
                 },
                 src: '*.js',
