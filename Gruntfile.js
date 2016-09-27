@@ -27,7 +27,7 @@ module.exports = function (grunt) {
             withOptions: {
                 options: {
                     'no-gfm': false,
-                    'global-index-format': 'table'
+                    'global-index-format': 'grouped'
                 },
                 src: '*.js',
                 dest: 'docs/Reference.md'
