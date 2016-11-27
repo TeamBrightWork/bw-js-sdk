@@ -8,7 +8,7 @@ import axios from 'axios';
  * @class BrightWork
  * @classdesc The BrightWork Javascript SDK
  */
-export default class BrightWork {
+class BrightWork {
 
     /**
      * Initialize the BrightWork Javascript SDK and connect it to your app
@@ -75,7 +75,13 @@ export default class BrightWork {
             .then((res) => {
                 console.log('settings loaded...');
                 this.initModels(res.data);
-                window.bw = this;
+
+                if (typeof window !== 'undefined') {
+                    window.bw = this;
+                } else {
+                    global.bw = this;
+                }
+
                 return this;
             })
             .catch((err) => {
@@ -92,4 +98,8 @@ export default class BrightWork {
     }
 };
 
-window.BrightWork = BrightWork;
+if (typeof window !== 'undefined') {
+    window.BrightWork = BrightWork;
+} else {
+    global.BrightWork = BrightWork;
+}

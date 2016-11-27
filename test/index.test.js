@@ -16,15 +16,15 @@ describe('SDK', function() {
             nock('http://localhost')
                 .matchHeader('apiKey', 'API123')
                 .matchHeader('Content-Type', 'application/json')
-                .get('/settings')
+                .get('/app/settings')
                 .reply(200, {
                     models: [
-                        'customer',
-                        'log'
+                        { name: 'customer' },
+                        { name: 'log' }
                     ]
                 });
 
-        BrightWork.initialize('API123', 'testApp', 'http://localhost').then(function(loadedSDK){
+        BrightWork.initialize('API123', 'testApp', 'http://localhost', 'http://localhost').then(function(loadedSDK){
             sdk = loadedSDK;
             done();
         });

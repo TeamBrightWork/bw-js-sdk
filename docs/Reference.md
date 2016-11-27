@@ -1,14 +1,14 @@
 ## Classes
 
 * [BrightWork](#BrightWork)
+    * [.initialize(apiKey, appName, apiURL, appURL)](#BrightWork.initialize) ⇒ <code>Promise</code> &#124; <code>\*</code>
+    * [.query()](#BrightWork.query) ⇒ <code>[Query](#Query)</code>
 * [Query](#Query)
 * [Repository](#Repository)
     * [new Repository()](#new_Repository_new)
 
 ## Functions
 
-* [initialize(apiKey, appName, apiURL, appURL)](#initialize) ⇒ <code>Promise</code> &#124; <code>\*</code>
-* [query()](#query) ⇒ <code>[Query](#Query)</code>
 * [equalTo(field, value)](#equalTo) ⇒ <code>[Query](#Query)</code>
 * [notEqualTo(field, value)](#notEqualTo) ⇒ <code>[Query](#Query)</code>
 * [lessThan(field, value)](#lessThan) ⇒ <code>[Query](#Query)</code>
@@ -39,6 +39,48 @@
 The BrightWork Javascript SDK
 
 **Kind**: global class  
+
+* [BrightWork](#BrightWork)
+    * [.initialize(apiKey, appName, apiURL, appURL)](#BrightWork.initialize) ⇒ <code>Promise</code> &#124; <code>\*</code>
+    * [.query()](#BrightWork.query) ⇒ <code>[Query](#Query)</code>
+
+<a name="BrightWork.initialize"></a>
+
+### BrightWork.initialize(apiKey, appName, apiURL, appURL) ⇒ <code>Promise</code> &#124; <code>\*</code>
+Initialize the BrightWork Javascript SDK and connect it to your app
+
+**Kind**: static method of <code>[BrightWork](#BrightWork)</code>  
+
+| Param | Description |
+| --- | --- |
+| apiKey | the api key assigned to your app |
+| appName | the name of your app as defined in the manifest |
+| apiURL | (optional) the BrightWork API URL |
+| appURL | (optional) the URL to your APP |
+
+**Example** *(Initialize the BrightWork JavaScript SDK to work with your app.)*  
+```js
+
+BrightWork.initialize('YOUR_API_KEY', 'YOUR_APP_NAME').then(function(){
+     console.log('initialized you can now access the SDK via window.bw global variable');
+});
+```
+<a name="BrightWork.query"></a>
+
+### BrightWork.query() ⇒ <code>[Query](#Query)</code>
+Create a new query for filtering *.models.model.find
+
+**Kind**: static method of <code>[BrightWork](#BrightWork)</code>  
+**See**: {Repository#find}  
+**Example** *(All the photo albums where name contains &#x27;Photo&#x27; sorted by name ascending.)*  
+```js
+var query = BrightWork.Query().contains('name', 'Photo').ascending('name');
+
+console.log('searching for all albums named "*Photo*"...');
+bw.models.album.find(query).then(function(albums) {
+  console.log('...results', albums);
+});
+```
 <a name="Query"></a>
 
 ## Query
@@ -57,43 +99,6 @@ Used to interact with the persistence store.
 ### new Repository()
 There is no need to instantiate a repository directly. Upon initialization of the SDK all of your model repositories are available via the *.models namespace.
 
-<a name="initialize"></a>
-
-## initialize(apiKey, appName, apiURL, appURL) ⇒ <code>Promise</code> &#124; <code>\*</code>
-Initialize the BrightWork Javascript SDK and connect it to your app
-
-**Kind**: global function  
-
-| Param | Description |
-| --- | --- |
-| apiKey | the api key assigned to your app |
-| appName | the name of your app as defined in the manifest |
-| apiURL | (optional) the BrightWork API URL |
-| appURL | (optional) the URL to your APP |
-
-**Example** *(Initialize the BrightWork JavaScript SDK to work with your app.)*  
-```js
-
-BrightWork.initialize('YOUR_API_KEY', 'YOUR_APP_NAME').then(function(){
-     console.log('initialized you can now access the SDK via window.bw global variable');
-});
-```
-<a name="query"></a>
-
-## query() ⇒ <code>[Query](#Query)</code>
-Create a new query for filtering *.models.model.find
-
-**Kind**: global function  
-**See**: {Repository#find}  
-**Example** *(All the photo albums where name contains &#x27;Photo&#x27; sorted by name ascending.)*  
-```js
-var query = BrightWork.Query().contains('name', 'Photo').ascending('name');
-
-console.log('searching for all albums named "*Photo*"...');
-bw.models.album.find(query).then(function(albums) {
-  console.log('...results', albums);
-});
-```
 <a name="equalTo"></a>
 
 ## equalTo(field, value) ⇒ <code>[Query](#Query)</code>
