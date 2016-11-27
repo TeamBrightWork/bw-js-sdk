@@ -34,7 +34,7 @@ $(document).ready(function() {
     });
 
     console.log('initializing SDK...');
-    BrightWork.initialize('d4ad4a3c51234cc1be492f9dffa15b13', 'photos', 'http://api.brightwork.dev', 'http://photos.brightwork.dev:8000').then(function(){
+    BrightWork.initialize('YOUR-API-KEY', 'YOUR-APP-NAME').then(function(){
         console.log('...SDK initialized');
         bw.models.album.find().then(function(albums) {
             $("#albumContent").append(renderTable({albums: albums}));

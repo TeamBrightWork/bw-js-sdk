@@ -39,14 +39,24 @@ module.exports = function (grunt) {
                 dest: 'docs/GettingStarted.md'
             },
         },
+        mochaTest: {
+            test: {
+                options: {
+                    require: 'babel-core/register'
+                },
+                src: ['test/**/*.js']
+            }
+        }
     });
 
     grunt.loadNpmTasks("grunt-browserify");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks('grunt-jsdoc-to-markdown')
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask("default", ["watch"]);
+    grunt.registerTask("test", ["mochaTest"]);
     grunt.registerTask("build", ["browserify", "docs"]);
     grunt.registerTask("docs", ["jsdoc2md", "copy:docs"]);
 };
