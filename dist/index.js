@@ -18,6 +18,10 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _retryPromise = require('retry-promise');
+
+var _retryPromise2 = _interopRequireDefault(_retryPromise);
+
 /**
  * @class BrightWork
  * @classdesc The BrightWork Javascript SDK
@@ -87,24 +91,27 @@ var BrightWork = (function () {
         // call home and get settings & models
         var request = _axios2['default'].create({
             baseURL: this.apiURL,
-            timeout: 1000,
+            timeout: 6000,
             headers: {
                 'Content-Type': 'application/json',
                 'apiKey': apiKey
             }
         });
 
-        return request.get('/app/settings').then(function (res) {
-            console.log('settings loaded...');
-            _this.initModels(res.data);
+        return _retryPromise2['default']({ max: 2, backoff: 1000 }, function (attempt) {
+            console.log('initializing BrightWork...', attempt);
+            return request.get('/app/settings').then(function (res) {
+                console.log('settings loaded...');
+                _this.initModels(res.data);
 
-            if (typeof window !== 'undefined') {
-                window.bw = _this;
-            } else {
-                global.bw = _this;
-            }
+                if (typeof window !== 'undefined') {
+                    window.bw = _this;
+                } else {
+                    global.bw = _this;
+                }
 
-            return _this;
+                return _this;
+            });
         })['catch'](function (err) {
             console.error('Unable to initialize the BrightWork SDK');
             console.error(err);
@@ -132,7 +139,7 @@ if (typeof window !== 'undefined') {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./query":26,"./repository":27,"axios":2}],2:[function(require,module,exports){
+},{"./query":27,"./repository":28,"axios":2,"retry-promise":26}],2:[function(require,module,exports){
 module.exports = require('./lib/axios');
 },{"./lib/axios":4}],3:[function(require,module,exports){
 (function (process){
@@ -18285,6 +18292,39 @@ process.umask = function() { return 0; };
 },{}],26:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var retry = function retry() {
+  var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+  var getPromise = arguments[1];
+
+  if (typeof opts === 'function') {
+    return retry({}, opts);
+  }
+
+  opts.max = opts.max || 10;
+  opts.backoff = opts.backoff || 1000;
+
+  return new Promise(function (resolve, reject) {
+    var attempt = function attempt(i) {
+      getPromise(i).then(resolve).catch(function (err) {
+        if (i >= opts.max) {
+          return reject(err);
+        }
+        setTimeout(function () {
+          return attempt(i + 1);
+        }, i * opts.backoff);
+      });
+    };
+    attempt(1);
+  });
+};
+
+exports.default = retry;
+},{}],27:[function(require,module,exports){
+'use strict';
+
 exports.__esModule = true;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -18582,7 +18622,7 @@ var Query = (function () {
 exports['default'] = Query;
 module.exports = exports['default'];
 
-},{"lodash":24}],27:[function(require,module,exports){
+},{"lodash":24}],28:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;

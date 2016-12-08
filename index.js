@@ -3,6 +3,7 @@
 import Repository from'./repository';
 import Query from'./query';
 import axios from 'axios';
+import retry from 'retry-promise';
 
 /**
  * @class BrightWork
@@ -64,31 +65,34 @@ class BrightWork {
         // call home and get settings & models
         var request = axios.create({
             baseURL: this.apiURL,
-            timeout: 1000,
+            timeout: 6000,
             headers: {
                 'Content-Type': 'application/json',
                 'apiKey': apiKey
             }
         });
 
-        return request.get('/app/settings')
-            .then((res) => {
-                console.log('settings loaded...');
-                this.initModels(res.data);
+        return retry({ max: 2, backoff: 1000 }, (attempt) => {
+                console.log('initializing BrightWork...', attempt);
+                return request.get('/app/settings')
+                    .then((res) => {
+                        console.log('settings loaded...');
+                        this.initModels(res.data);
 
-                if (typeof window !== 'undefined') {
-                    window.bw = this;
-                } else {
-                    global.bw = this;
-                }
+                        if (typeof window !== 'undefined') {
+                            window.bw = this;
+                        } else {
+                            global.bw = this;
+                        }
 
-                return this;
-            })
-            .catch((err) => {
-                console.error('Unable to initialize the BrightWork SDK');
-                console.error(err);
-                return null;
-            });
+                        return this;
+                    });
+        })
+        .catch((err) => {
+            console.error('Unable to initialize the BrightWork SDK');
+            console.error(err);
+            return null;
+        });
     }
 
     initModels(settings) {

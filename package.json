@@ -1,6 +1,6 @@
 {
   "name": "bw-js-sdk",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "The BrightWork platform provides a complete backend solution for your apps.  Our goal is to increase developer productivity and reduce the time it takes for you to build a complete application. Our Javascript SDK accelerates the time it takes to integrate your backend API with your Javascript application.",
   "main": "dist/index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   "dependencies": {
     "axios": "^0.13.1",
     "jsdoc": "^3.4.0",
-    "lodash": "^4.15.0"
+    "lodash": "^4.15.0",
+    "retry-promise": "^1.0.0"
   }
 }
