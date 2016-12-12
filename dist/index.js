@@ -47,9 +47,9 @@ var BrightWork = (function () {
      * @returns {Promise|*}
      */
 
-    BrightWork.initialize = function initialize(apiKey, appName, apiURL, appURL) {
+    BrightWork.initialize = function initialize(apiKey, appName, apiURL, appURL, timeout) {
         var sdk = new BrightWork();
-        return sdk.init(apiKey, appName, apiURL, appURL);
+        return sdk.init(apiKey, appName, apiURL, appURL, timeout);
     };
 
     /**
@@ -79,7 +79,7 @@ var BrightWork = (function () {
      * @returns {*}
      */
 
-    BrightWork.prototype.init = function init(apiKey, appName, apiURL, appURL) {
+    BrightWork.prototype.init = function init(apiKey, appName, apiURL, appURL, timeout) {
         var _this = this;
 
         this.models = {};
@@ -87,11 +87,12 @@ var BrightWork = (function () {
         this.appName = appName;
         this.apiURL = apiURL || 'http://api.brightwork.io';
         this.appURL = appURL || 'http://' + this.appName + '.bwapps.io';
+        this.timeout = timeout || 6000;
 
         // call home and get settings & models
         var request = _axios2['default'].create({
             baseURL: this.apiURL,
-            timeout: 6000,
+            timeout: this.timeout,
             headers: {
                 'Content-Type': 'application/json',
                 'apiKey': apiKey
@@ -123,7 +124,7 @@ var BrightWork = (function () {
         var _this2 = this;
 
         settings.models.forEach(function (model) {
-            _this2.models[model.name] = new _repository2['default'](_this2.apiKey, _this2.appURL, model.name, model.collections);
+            _this2.models[model.name] = new _repository2['default'](_this2.apiKey, _this2.appURL, model.name, model.collections, _this2.timeout);
         });
     };
 
@@ -18650,7 +18651,7 @@ var Repository = (function () {
      * @param modelName
      */
 
-    function Repository(apiKey, baseUrl, modelName, collections) {
+    function Repository(apiKey, baseUrl, modelName, collections, timeout) {
         var _this = this;
 
         _classCallCheck(this, Repository);
@@ -18658,7 +18659,7 @@ var Repository = (function () {
         this.modelName = modelName.toLowerCase();
         this.request = _axios2['default'].create({
             baseURL: baseUrl + '/api/',
-            timeout: 1000,
+            timeout: timeout,
             headers: {
                 'apiKey': apiKey,
                 'Content-Type': 'application/json'

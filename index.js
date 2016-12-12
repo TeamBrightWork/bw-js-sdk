@@ -25,9 +25,9 @@ class BrightWork {
      *
      * @returns {Promise|*}
      */
-    static initialize(apiKey, appName, apiURL, appURL) {
+    static initialize(apiKey, appName, apiURL, appURL, timeout) {
         var sdk = new BrightWork();
-        return sdk.init(apiKey, appName, apiURL, appURL);
+        return sdk.init(apiKey, appName, apiURL, appURL, timeout);
     }
 
     /**
@@ -55,17 +55,18 @@ class BrightWork {
      * @param appURL
      * @returns {*}
      */
-    init(apiKey, appName, apiURL, appURL) {
+    init(apiKey, appName, apiURL, appURL, timeout) {
         this.models = {};
         this.apiKey = apiKey;
         this.appName = appName;
         this.apiURL = apiURL || 'http://api.brightwork.io';
         this.appURL = appURL || `http://${this.appName}.bwapps.io`;
+        this.timeout = timeout || 6000;
 
         // call home and get settings & models
         var request = axios.create({
             baseURL: this.apiURL,
-            timeout: 6000,
+            timeout: this.timeout,
             headers: {
                 'Content-Type': 'application/json',
                 'apiKey': apiKey
@@ -97,7 +98,7 @@ class BrightWork {
 
     initModels(settings) {
         settings.models.forEach((model) => {
-           this.models[model.name] = new Repository(this.apiKey, this.appURL, model.name, model.collections);
+           this.models[model.name] = new Repository(this.apiKey, this.appURL, model.name, model.collections, this.timeout);
         });
     }
 };
