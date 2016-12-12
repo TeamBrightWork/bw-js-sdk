@@ -15,12 +15,12 @@ export default class Repository {
      * @param baseUrl
      * @param modelName
      */
-    constructor(apiKey, baseUrl, modelName, collections) {
+    constructor(apiKey, baseUrl, modelName, collections, timeout) {
 
         this.modelName = modelName.toLowerCase();
         this.request = axios.create({
             baseURL: baseUrl + '/api/',
-            timeout: 1000,
+            timeout: timeout,
             headers: {
                 'apiKey': apiKey,
                 'Content-Type': 'application/json'
