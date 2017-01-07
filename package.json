@@ -2,31 +2,34 @@
   "name": "bw-js-sdk",
   "version": "0.0.10",
   "description": "The BrightWork platform provides a complete backend solution for your apps.  Our goal is to increase developer productivity and reduce the time it takes for you to build a complete application. Our Javascript SDK accelerates the time it takes to integrate your backend API with your Javascript application.",
-  "main": "dist/index.js",
+  "main": "dist/node/src/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register test/**/*.js"
   },
   "devDependencies": {
-    "axios": "^0.13.1",
-    "babelify": "~6.1.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
     "grunt": "^0.4.5",
-    "grunt-browserify": "~3.8.0",
+    "grunt-babel": "^6.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jsdoc-to-markdown": "^1.2.1",
     "grunt-mocha-test": "^0.13.2",
+    "grunt-webpack": "^1.0.18",
     "ink-docstrap": "^1.2.1",
     "minami": "^1.1.1",
     "mocha": "^3.0.2",
     "nock": "^8.0.0",
-    "webpack": "^1.13.1"
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   },
   "author": "Phil Taylor",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.13.1",
+    "axios": "^0.15",
     "jsdoc": "^3.4.0",
     "lodash": "^4.15.0",
     "retry-promise": "^1.0.0"

@@ -1,7 +1,7 @@
 {
   "name": "bw-js-sdk",
   "description": "The BrightWork Javascript SDK",
-  "main": "dist/index.js",
+  "main": "dist/web/index.js",
   "authors": [
     "Phil Taylor"
   ],
