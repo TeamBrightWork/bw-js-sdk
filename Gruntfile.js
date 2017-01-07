@@ -1,26 +1,54 @@
 module.exports = function (grunt) {
-    grunt.initConfig({
-        browserify: {
-            dist: {
-                standalone: "BrightWork",
-                options: {
-                transform: [
-                    ["babelify", {
-                        loose: "all"
-                    }]
-                ]},
-                files: {
-                    // if the source file has an extension of es6 then
-                    // we change the name of the source file accordingly.
-                    // The result file's extension is always .js
-                    "./dist/index.js": ["./index.js"]
+    grunt.initConfig({        
+
+        webpack: {
+            options: {
+                entry: './src/index.js',
+                output: {
+                    path: 'dist/web/',
+                    filename: 'index.js',
+                    library: 'bw-js-sdk',
+                    libraryTarget: 'umd'
+                },
+                node: {
+                    process: false,
+                    global: true
+                }
+            },
+            build: {
+                module: {
+                    loaders: [
+                        {
+                            test: /\.js$/,
+                            exclude: /(node_modules|bower_components)/,
+                            loader: 'babel-loader',
+                            query: {
+                                presets: ['es2015']
+                            }
+                        }
+                    ]
                 }
             }
         },
+
+        babel: {
+            options: {
+                sourceMap: true,
+                presets: ['es2015']
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    src: ['./src/*.js'],
+                    dest: './dist/node'
+                }]
+            }
+        },
+
         watch: {
             scripts: {
                 files: ["./*.js"],
-                tasks: ["browserify"]
+                tasks: ["webpack", "babel"]
             }
         },
         jsdoc2md: {
@@ -49,14 +77,15 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks("grunt-browserify");
+    grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-webpack');
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks('grunt-jsdoc-to-markdown')
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-mocha-test');
 
-    grunt.registerTask("default", ["watch"]);
+    grunt.registerTask("default", ["build"]);
     grunt.registerTask("test", ["mochaTest"]);
-    grunt.registerTask("build", ["browserify", "docs"]);
+    grunt.registerTask("build", ["babel", "webpack:build", "docs"]);
     grunt.registerTask("docs", ["jsdoc2md", "copy:docs"]);
 };
