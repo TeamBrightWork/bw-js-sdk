@@ -11,7 +11,7 @@ module.exports = function (grunt) {
                     libraryTarget: 'umd'
                 },
                 node: {
-                    process: false,
+                    process: true,
                     global: true
                 }
             },

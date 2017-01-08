@@ -12,7 +12,7 @@ module.exports = function(grunt){
             },
             dist: {
                 src: [
-                    '../../dist/index.js',
+                    '../../dist/web/index.js',
                     'public/bower_components/jquery/dist/jquery.min.js',
                     'public/bower_components/bootstrap/dist/js/bootstrap.min.js',
                     'public/js/**/*.js'
@@ -101,7 +101,7 @@ module.exports = function(grunt){
                     port: 8000,
                     hostname: '*',
                     livereload: false,
-                    base: ['../dist', 'public/'],
+                    base: ['../dist/web', 'public/'],
                     open: true
                 }
             }

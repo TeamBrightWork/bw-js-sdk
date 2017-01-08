@@ -91,3 +91,32 @@ above $50 and the item is in a "pending" or "paid" status.  You want the results
     });
 
 ```
+
+### Running the Demo
+There is a demo photo app in the ./demo folder.  Follow the steps below to get it running and play around.
+
+1. Deploy your BrightWork demo app backend API
+Follow the steps in [Getting Started](http://www.brightwork.io/#!/docs/main/gettingstarted) to setup and deploy the sample API.  Get your
+API key by running the `bw list` command once you have successfuly deployed.
+
+2. Configure and run the demo web app
+
+    - Setup your API credentials (edit ./demo/public/js/main.js)
+    
+    ```
+        console.log('initializing SDK...');
+        BrightWork.initialize('YOUR-API-KEY', 'YOUR-APP-NAME').then(function(){
+            console.log('...SDK initialized');
+            bw.models.album.find().then(function(albums) {
+                $("#albumContent").append(renderTable({albums: albums}));
+            });
+        });
+    ```
+    
+    - Install dependencies and start the server
+    
+    ```bash
+        cd ./demo
+        npm install && bower install
+        grunt server
+    ```
